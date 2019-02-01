@@ -9,10 +9,12 @@ import store from './store'
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <AppNavbar />
-        <ShoppingList />
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <AppNavbar />
+          <ShoppingList />
+        </div>
+      </Provider>
     );
   }
 }
