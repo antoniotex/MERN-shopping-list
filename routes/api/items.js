@@ -23,6 +23,20 @@ router.post('/', (req, res) => {
     newItem.save().then(item => res.json(item))
 })
 
+// @route PUT api/items
+// @desc  Update An Item
+// @access Public
+router.put('/:id', (req, res) => {
+    console.log('Parametro que eu passo', req.params.id)
+    Item.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, (err, item) => {
+        console.log('ITEM => ', item)
+        if(err){
+            res.send(err)
+        }
+        res.json(item)
+    })
+})
+
 // @route DELETE api/items/:id
 // @desc  Delete An Item
 // @access Public
