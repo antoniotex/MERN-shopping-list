@@ -27,9 +27,7 @@ router.post('/', (req, res) => {
 // @desc  Update An Item
 // @access Public
 router.put('/:id', (req, res) => {
-    console.log('Parametro que eu passo', req.params.id)
     Item.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, (err, item) => {
-        console.log('ITEM => ', item)
         if(err){
             res.send(err)
         }
